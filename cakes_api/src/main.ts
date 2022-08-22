@@ -11,6 +11,6 @@ async function bootstrap() {
       transform: true,
     }),
   );
-  await app.listen(3000);
+  await app.listen(3000, () => console.log('Server running on port 3000'));
 }
 bootstrap();
