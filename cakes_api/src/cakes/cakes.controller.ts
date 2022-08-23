@@ -21,15 +21,16 @@ export class CakesController {
     return this.cakesService.findAll();
   }
 
-  @Get('list:id')
+  @Get(':id')
   findById(@Param('id') id: string) {
     return this.cakesService.findByCake(id);
   }
 
-  @Post()
+  @Post('postar')
   create(@Body() createCakeDto: CreateCakesDto) {
     return this.cakesService.createCake(createCakeDto);
   }
+
   @Patch(':id')
   update(@Param('id') id: string, @Body() createCakeDto: UpdateCakesDto) {
     return this.cakesService.updateCake(id, createCakeDto);

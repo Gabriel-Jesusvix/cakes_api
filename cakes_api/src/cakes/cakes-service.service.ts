@@ -17,9 +17,7 @@ export class CakesService {
   }
 
   findByCake(id: string) {
-    const cakes = this.cakeRepository.findOne({
-      where: id,
-    });
+    const cakes = this.cakeRepository.findOne(id);
 
     if (!cakes) {
       throw new NotFoundException('Bolo não encontrado');
@@ -38,7 +36,7 @@ export class CakesService {
   async updateCake(id: string, cakesDto: UpdateCakesDto) {
     const cakes = await this.cakeRepository.preload({
       id: +id,
-      ...UpdateCakesDto,
+      ...cakesDto,
     });
 
     if (!cakes) {
