@@ -6,7 +6,7 @@ import { UpdateCakesDto } from './dto/update-cakes.dto';
 import { Cake } from './entities/cake.entity';
 
 @Injectable()
-export class CakesServiceService {
+export class CakesService {
   constructor(
     @InjectRepository(Cake)
     private readonly cakeRepository: Repository<Cake>,
